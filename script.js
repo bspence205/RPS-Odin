@@ -7,23 +7,21 @@ let compScore = 0;
 // const userScore = 0;
 // const cpuScore = 0;
 
-function computerPlay() {
-  let cpuChoice = Math.floor(Math.random() * 3);
-  if (cpuChoice === 0) {
-    return (cpuChoice = "Scissors");
-  } else if (cpuChoice === 1) {
-    return (cpuChoice = "Paper");
-  } else {
-    return (cpuChoice = "Rock");
-  }
-}
-
-// Below is functionally the same as the function above but uses arrays to hold choice value instead of converting
-
 // function computerPlay() {
-//   let compchoice = ["Rock", "Paper", "Scissors"];
-//   return compchoice[Math.floor(Math.random() * compchoice.length)];
+//   let cpuChoice = Math.floor(Math.random() * 3);
+//   if (cpuChoice === 0) {
+//     return (cpuChoice = "Scissors");
+//   } else if (cpuChoice === 1) {
+//     return (cpuChoice = "Paper");
+//   } else {
+//     return (cpuChoice = "Rock");
+//   }
 // }
+
+function computerPlay() {
+  let compchoice = ["Rock", "Paper", "Scissors"];
+  return compchoice[Math.floor(Math.random() * compchoice.length)];
+}
 
 function singleRound() {
   playerChoice = prompt("Rock, Paper, Scissors; First to 3 Wins!");
