@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: yellow;
+    background-color: rgb(2, 2, 50);
+}
+
+.instruction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 24vh;
+    background-color: gray;
+
+}
+
+.uScore {
+    margin-right: 50vh;
+}
+
+.uScore, .cScore {
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    background-color: gray;
+}
+
+.choices {
+    height: 20vh;
+    width: 20vw;
+    background-color: rgba(255, 0, 0, 0.334);
+    margin-right: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.choices:hover {
+    transform: scale(1.1);
+    background-color: rgb(22, 22, 95);
+}
+
+.footer {
+    text-align: center;
+    background-color: gray;
+    color: white;
+    
+}
