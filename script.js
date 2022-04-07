@@ -73,4 +73,69 @@ function game() {
   }
 }
 
-game();
+// game();
+
+// DOM Manipulation of Front End UI
+const cont = document.querySelector(".container");
+const header = document.createElement("header");
+header.classList.add("header");
+header.textContent = "Rock Paper Scissors Challenge";
+header.setAttribute(
+  "style",
+  "text-align: center; padding: 10px; font-size: 24px; font-weight: bold; min-height: 10vh"
+);
+cont.appendChild(header);
+
+const main = document.createElement("main");
+cont.appendChild(main);
+const instruction = document.createElement("h2");
+instruction.textContent = "Make a choice, first to 3 wins the game";
+instruction.setAttribute(
+  "style",
+  "background: gray; color: white; font-weight: bold; min-height: 15vh;"
+);
+instruction.classList.add("instruction");
+main.appendChild(instruction);
+const scores = document.createElement("div");
+scores.classList.add("scores");
+const uScore = document.createElement("span");
+uScore.classList.add("uScore");
+const cScore = document.createElement("span");
+cScore.classList.add("cScore");
+uScore.textContent = "User: 0";
+cScore.textContent = "Comp: 0";
+
+main.appendChild(scores);
+scores.appendChild(uScore);
+scores.appendChild(cScore);
+
+const buttonHolder = document.createElement("div");
+buttonHolder.classList.add("holder");
+main.appendChild(buttonHolder);
+
+const choices = document.createElement("button");
+choices.classList.add("choices");
+choices.textContent = "SCISSOR";
+choices.style.color = "white";
+choices.style.fontSize = "1.3rem";
+const choices1 = document.createElement("button");
+choices1.classList.add("choices");
+choices1.textContent = "ROCK";
+choices1.style.color = "white";
+choices1.style.fontSize = "1.3rem";
+
+const choices2 = document.createElement("button");
+choices2.classList.add("choices");
+choices2.textContent = "PAPER";
+choices2.style.color = "white";
+choices2.style.fontSize = "1.3rem";
+
+buttonHolder.appendChild(choices1);
+buttonHolder.appendChild(choices2);
+buttonHolder.appendChild(choices);
+
+const footer = document.createElement("footer");
+footer.classList.toggle("footer");
+footer.textContent = "Made by bspence205 via HTML, CSS, JAVASCRIPT";
+
+cont.appendChild(footer);
