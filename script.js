@@ -1,16 +1,10 @@
 let userScore = 0;
 let compScore = 0;
 
-// function for computer choice to randomly be generated
-
-// const gameChoices = ["scissors", "paper", "rock"];
-// const userScore = 0;
-// const cpuScore = 0;
-
 function computerPlay() {
   let cpuChoice = Math.floor(Math.random() * 3);
   if (cpuChoice === 0) {
-    return (cpuChoice = "Scissors");
+    return (cpuChoice = "Scissor");
   } else if (cpuChoice === 1) {
     return (cpuChoice = "Paper");
   } else {
@@ -18,23 +12,16 @@ function computerPlay() {
   }
 }
 
-// Below is functionally the same as the function above but uses arrays to hold choice value instead of converting
-
-// function computerPlay() {
-//   let compchoice = ["Rock", "Paper", "Scissors"];
-//   return compchoice[Math.floor(Math.random() * compchoice.length)];
-// }
-
-function singleRound() {
-  playerChoice = prompt("Rock, Paper, Scissors; First to 3 Wins!");
-  firstLetter = playerChoice.slice(0, 1);
-  capFirstLetter = firstLetter.toUpperCase();
-  remaining = playerChoice.slice(1);
-  remainingLower = remaining.toLowerCase();
-  playerSelection = capFirstLetter + remainingLower;
+function playRound(playerSelection, computerSelection) {
+  // playerChoice = prompt("Rock, Paper, Scissors; First to 3 Wins!");
+  // firstLetter = playerChoice.slice(0, 1);
+  // capFirstLetter = firstLetter.toUpperCase();
+  // remaining = playerChoice.slice(1);
+  // remainingLower = remaining.toLowerCase();
+  // playerSelection = capFirstLetter + remainingLower;
   computerSelection = computerPlay();
-  console.log(playerSelection);
-  console.log(computerSelection);
+  // console.log(playerSelection);
+  // console.log(computerSelection);
   if (playerSelection === "Rock" && computerSelection === "Scissors") {
     alert("You Win, Rock beats Scissors");
     return (userScore += 1);
@@ -60,24 +47,24 @@ function singleRound() {
   }
 }
 
-function game() {
-  for (i = 0; i <= 10; i++) {
-    singleRound();
-    console.log(`User Score: ${userScore}`);
-    console.log(`Comp Score ${compScore}`);
-    if (userScore == 3) {
-      return alert(`Congratulations! User Wins! Total Wins: ${userScore}`);
-    } else if (compScore == 3) {
-      return alert(
-        `Better Luck Next Time! Computer Wins! Total Comp Wins: ${compScore}`
-      );
-    }
-  }
-}
+// function game() {
+//   for (i = 0; i <= 10; i++) {
+//     playRound();
+//     console.log(`User Score: ${userScore}`);
+//     console.log(`Comp Score ${compScore}`);
+//     if (userScore == 3) {
+//       return alert(`Congratulations! User Wins! Total Wins: ${userScore}`);
+//     } else if (compScore == 3) {
+//       return alert(
+//         `Better Luck Next Time! Computer Wins! Total Comp Wins: ${compScore}`
+//       );
+//     }
+//   }
+// }
 
 // game();
 
-// DOM Manipulation of Front End UI
+// DOM Manipulation for Front End UI
 const cont = document.querySelector(".container");
 const header = document.createElement("header");
 header.classList.add("header");
@@ -117,18 +104,19 @@ main.appendChild(buttonHolder);
 
 const choices = document.createElement("button");
 choices.classList.add("choices");
-choices.textContent = "SCISSOR";
+choices.textContent = "Scissor";
 choices.style.color = "white";
 choices.style.fontSize = "1.3rem";
+choices.addEventListener("click", playRound());
 const choices1 = document.createElement("button");
 choices1.classList.add("choices");
-choices1.textContent = "ROCK";
+choices1.textContent = "Rock";
 choices1.style.color = "white";
 choices1.style.fontSize = "1.3rem";
 
 const choices2 = document.createElement("button");
 choices2.classList.add("choices");
-choices2.textContent = "PAPER";
+choices2.textContent = "Paper";
 choices2.style.color = "white";
 choices2.style.fontSize = "1.3rem";
 
@@ -138,6 +126,18 @@ buttonHolder.appendChild(choices);
 
 const footer = document.createElement("footer");
 footer.classList.toggle("footer");
-footer.textContent = "Made by bspence205 via HTML, CSS, JAVASCRIPT";
+footer.textContent = "Made by bspence205 with Vanilla HTML, CSS & JAVASCRIPT";
+// footer.style.justifySelf = "flex-end"
 
 cont.appendChild(footer);
+
+choices2.addEventListener("click", () => {
+  computerSelection = computerPlay();
+  if (computerSelection == "Scissor") {
+    alert("You Lose");
+  } else {
+    alert("Winner");
+  }
+  console.log(choices2.textContent);
+  console.log(computerSelection);
+});
