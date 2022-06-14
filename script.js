@@ -42,8 +42,9 @@ function playRound(playerSelection, computerSelection) {
     return (compScore += 1);
   } else if (playerSelection === computerSelection) {
     return alert("its a tie");
-  } else {
-    return alert("Make a valid choice, check your punctuation");
+  // } else {
+  //   return alert("Make a valid choice, check your punctuation");
+  // }
   }
 }
 
@@ -139,5 +140,27 @@ choices2.addEventListener("click", () => {
     alert("Winner");
   }
   console.log(choices2.textContent);
+  console.log(computerSelection);
+});
+
+choices1.addEventListener("click", () => {
+  computerSelection = computerPlay();
+  if (computerSelection == "Paper") {
+    alert("You Lose");
+  } else {
+    alert("Winner");
+  }
+  console.log(choices1.textContent);
+  console.log(computerSelection);
+});
+
+choices.addEventListener("click", () => {
+  computerSelection = computerPlay();
+  if (computerSelection == "Rock") {
+    alert("You Lose");
+  } else {
+    alert("Winner");
+  }
+  console.log(choices.textContent);
   console.log(computerSelection);
 });
